@@ -2,7 +2,7 @@
 
 ## Project summary 
 
-## Accessibility Considerations
+## Accessibility considerations
 
 ## Testing
 
