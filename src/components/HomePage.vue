@@ -4,7 +4,7 @@
     <h3>Test your intuition for painting dating</h3>
     <label for=""></label>
     <button></button>
-    <footer>A simple web app powered by the Art Institute of Chicago</footer>
+    <footer>A simple web app powered by the Art Institute of Chicago API</footer>
   </div>
 </template>
 
