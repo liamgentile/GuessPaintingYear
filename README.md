@@ -15,7 +15,7 @@ https://www.artic.edu/open-access/public-api
 
 ### Fonts: 
 - fontpair: provides suggestions for pairing header and paragraph fonts
-- google fonts: importing the fonts 
+- google fonts: for retrieving freely available fonts 
 
 ## Project setup
 ```
