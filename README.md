@@ -1,5 +1,11 @@
 # guess-painting-year
 
+## Project summary 
+
+## Accessibility Considerations
+
+## Testing
+
 ## Project setup
 ```
 npm install
