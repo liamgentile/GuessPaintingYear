@@ -6,6 +6,17 @@
 
 ## Testing
 
+## Resources
+
+### API
+
+Art Institute of Chicago 
+https://www.artic.edu/open-access/public-api
+
+### Fonts: 
+- fontpair: provides suggestions for pairing header and paragraph fonts
+- google fonts: importing the fonts 
+
 ## Project setup
 ```
 npm install
