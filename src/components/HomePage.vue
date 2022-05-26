@@ -85,6 +85,9 @@ export default {
         .getElementById("date-input")
         .classList.remove("invalid-input", "incomplete");
     },
+    refreshPage() {
+      window.location.reload;
+    },
     async submit() {
       if (this.exception === "") {
         fetch(
@@ -131,10 +134,10 @@ h3 {
   margin: auto;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-  border-bottom: solid 2px;
+  border-bottom: solid 2px #ffff;
   padding-bottom: 2rem;
   width: 20rem;
-  color: #2e2e2e;
+  color: #332d2d !important;
 }
 .button-label {
   margin-bottom: 1rem;
@@ -188,10 +191,11 @@ img {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  margin: auto;
+  border-top: 2px solid #ffff;
+  padding-top: 1rem;
+  width: 30rem;
   height: 2rem;
-
+  font-weight: 500;
 }
 </style>
