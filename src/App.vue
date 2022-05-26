@@ -37,9 +37,9 @@ h1, h3, h3, h4, h5, h6 {
   color: #222325
 }
 
-p, footer {
+p, footer, label, button {
   font-family: 'Libre Franklin', sans-serif;
-  color: #626a75;
+  color: #4b5158;
 }
 
 
