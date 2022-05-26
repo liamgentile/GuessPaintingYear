@@ -16,8 +16,11 @@
     <label class="input-label" for="#date-input"
       >Input your guess below for what year the above painting was made.</label
     >
-    <input id="date-input" class="date-input" type="text" />
-    <button type="button" class="guess-button" id="guess-button">Guess</button>
+    <input id="date-input" class="date-input" type="text" v-model="paintingDateGuess" placeholder="2000" @click="resetValidations" />
+    <button type="button" class="guess-button" id="guess-button" @click="submitDate">Guess</button>
+    
+    <p> {{ exception }} </p>
+  
     <footer>Powered by the Art Institute of Chicago API</footer>
   </div>
 </template>
@@ -27,14 +30,31 @@ export default {
   name: "HomePage",
   data() {
     return {
-      exceptions: [],
+      exception: "",
       paintingDate: 0,
-      painterName: "",
+      artistName: "",
       paintingName: "",
       randomId: 0,
+      paintingDateGuess: null
     };
   },
-  methods: {},
+  methods: {
+    submitDate() {
+      // validations 
+      if (!Number.isInteger(+this.paintingDateGuess) && this.paintingDateGuess) {
+        this.exception = 'Please input a valid date, for example, 1976.';
+        document.getElementById("date-input").classList.add("invalid-input");
+      }
+      if (!this.paintingDateGuess) {
+        this.exception = 'Woops, you forgot to fill out the date form.';
+        document.getElementById("date-input").classList.add("incomplete");
+      }
+    },
+    resetValidations() {
+      this.exception = "";
+      document.getElementById("date-input").classList.remove('invalid-input', "incomplete");
+    }
+  },
 };
 </script>
 
@@ -52,8 +72,11 @@ h3 {
   margin-bottom: 1rem;
 }
 .get-painting-button {
-  width: 5rem;
+  width: 6rem;
   margin: auto;
+  padding: auto;
+  height: 2rem;
+  font-size: 1rem;
 }
 
 .input-label {
@@ -63,17 +86,32 @@ h3 {
   margin: auto;
   margin-top: 1rem;
   width: 10rem;
+  border: none;
+  height: 1.5rem;
+  box-shadow: 2.5px 5px #888888;
 }
 
 .guess-button {
   margin: auto;
   margin-top: 1rem;
   width: 5rem;
+  height: 2rem;
+  font-size: 1rem;
+  padding: auto;
 }
 footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 3rem;
+}
+
+
+.incomplete {
+   border: 3px solid rgb(226, 98, 98);
+}
+
+.invalid-input {
+  border: 3px solid rgb(241, 156, 65);
 }
 </style>
