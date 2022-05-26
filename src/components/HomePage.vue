@@ -12,12 +12,13 @@
     >
       Generate
     </button>
-    <img src="" alt="">
-    <label class="input-label" for="#date-input">Input your guess for what year this painting was made below.</label>
-    <input id="date-input" class="date-input" type="text">
-    <footer>
-      Powered by the Art Institute of Chicago API
-    </footer>
+    <img src="" alt="" />
+    <label class="input-label" for="#date-input"
+      >Input your guess below for what year the above painting was made.</label
+    >
+    <input id="date-input" class="date-input" type="text" />
+    <button type="button" class="guess-button" id="guess-button">Guess</button>
+    <footer>Powered by the Art Institute of Chicago API</footer>
   </div>
 </template>
 
@@ -33,8 +34,7 @@ export default {
       randomId: 0,
     };
   },
-  methods: {
-  }
+  methods: {},
 };
 </script>
 
@@ -63,6 +63,12 @@ h3 {
   margin: auto;
   margin-top: 1rem;
   width: 10rem;
+}
+
+.guess-button {
+  margin: auto;
+  margin-top: 1rem;
+  width: 5rem;
 }
 footer {
   position: absolute;
