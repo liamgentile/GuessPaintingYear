@@ -3,7 +3,7 @@
     <h1>Guess the Painting Year!</h1>
     <h3>Test your intuition for painting dating</h3>
     <label for="#random-painting-button" class="button-label"
-      >Click generate to fetch a Random Painting</label
+      >Click generate to fetch a random painting</label
     >
     <button
       type="button"
@@ -19,7 +19,7 @@
     <input id="date-input" class="date-input" type="text" v-model="paintingDateGuess" placeholder="2000" @click="resetValidations" />
     <button type="button" class="guess-button" id="guess-button" @click="submitDate">Guess</button>
     
-    <p> {{ exception }} </p>
+    <p class="exception-message"> {{ exception }} </p>
   
     <footer>Powered by the Art Institute of Chicago API</footer>
   </div>
@@ -99,19 +99,21 @@ h3 {
   font-size: 1rem;
   padding: auto;
 }
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3rem;
+
+.exception-message {
+  font-weight: 700;
 }
-
-
 .incomplete {
    border: 3px solid rgb(226, 98, 98);
 }
 
 .invalid-input {
   border: 3px solid rgb(241, 156, 65);
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
 }
 </style>
