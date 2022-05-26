@@ -12,12 +12,14 @@
     >
       Generate
     </button>
-    <img src="" alt="" />
+    <img :src="imagePath" :alt="altText" />
     <label class="input-label" for="#date-input"
       >Input your guess below for what year the above painting was made.</label
     >
-    <input id="date-input" class="date-input" type="text" v-model="paintingDateGuess" placeholder="2000" @click="resetValidations" />
-    <button type="button" class="guess-button" id="guess-button" @click="submitDate">Guess</button>
+    <form action="" v-on:submit.prevent="submit">
+      <input id="date-input" class="date-input" type="text" v-model="paintingDateGuess" placeholder="2000" @click="resetValidations" />
+      <button type="button" class="guess-button" id="guess-button" @click="validate">Guess</button>
+    </form>
     
     <p class="exception-message"> {{ exception }} </p>
   
@@ -34,12 +36,15 @@ export default {
       paintingDate: 0,
       artistName: "",
       paintingName: "",
-      randomId: 0,
-      paintingDateGuess: null
+      // setting a random id to fetch in a valid range 
+      randomId: Math.floor(Math.random() * 90000) + 12000,
+      paintingDateGuess: null,
+      imagePath: "",
+      altText: ""
     };
   },
   methods: {
-    submitDate() {
+    validate() {
       // validations 
       if (!Number.isInteger(+this.paintingDateGuess) && this.paintingDateGuess) {
         this.exception = 'Please input a valid date, for example, 1976.';
@@ -53,7 +58,27 @@ export default {
     resetValidations() {
       this.exception = "";
       document.getElementById("date-input").classList.remove('invalid-input', "incomplete");
-    }
+    },
+    async submit() {
+      if (this.exception === "") {
+      fetch(`https://api.artic.edu/api/v1/artworks/${this.randomId}?fields=title,artist_title,date_end,alt_text,image_id`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((res) => res.json())
+        .then((response) => {
+          console.log(response);
+
+          this.imagePath = response.config.iiif_url + '/' + response.data.image_id + '/full/843,/0/default.jpg';
+          // this.responses.push({
+          //   prompt: "Prompt: ".bold() + this.input_prompt,
+          //   response: "Response: ".bold() + response.choices[0].text,
+          //   time: new Date(),
+          // });
+        });
+    }}
   },
 };
 </script>
@@ -77,6 +102,10 @@ h3 {
   padding: auto;
   height: 2rem;
   font-size: 1rem;
+}
+
+img {
+
 }
 
 .input-label {
@@ -109,6 +138,12 @@ h3 {
 
 .invalid-input {
   border: 3px solid rgb(241, 156, 65);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 footer {
   position: absolute;
