@@ -126,8 +126,15 @@ export default {
   justify-content: center;
 }
 
+
 h3 {
+  margin: auto;
+  margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+  border-bottom: solid 2px;
+  padding-bottom: 2rem;
+  width: 20rem;
+  color: #2e2e2e;
 }
 .button-label {
   margin-bottom: 1rem;
@@ -170,6 +177,7 @@ img {
 
 .exception-message {
   font-weight: 700;
+  padding-bottom: 2rem;
 }
 .incomplete {
   border: 3px solid rgb(226, 98, 98);
@@ -183,6 +191,7 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 3rem;
+  height: 2rem;
+
 }
 </style>
