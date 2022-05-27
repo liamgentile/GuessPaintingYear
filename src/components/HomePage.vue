@@ -169,9 +169,10 @@ img {
 .refresh-button {
    margin: auto;
   width: 6rem;
-  height: 3rem;
+  height: 2rem;
   font-size: 1rem;
   padding: auto;
+  margin-bottom: 1rem;
 }
 
 .exception-message {
