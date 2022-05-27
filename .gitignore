@@ -22,8 +22,8 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-babel.config.js
-cypress.json
-jsconfig.json
-package-lock.json
-vue.config.js
+.babel.config.js
+.cypress.json
+.jsconfig.json
+.package-lock.json
+.vue.config.js
