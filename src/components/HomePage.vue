@@ -39,6 +39,8 @@
 
     <p class="exception-message">{{ exception }}</p>
 
+    <p></p>
+
     <button @click="refreshPage" v-if="imageShown" class="refresh-button">
       Play Again
     </button>
@@ -61,6 +63,7 @@ export default {
       paintingDateGuess: null,
       imagePath: "",
       altText: "",
+      guessResponse: "",
     };
   },
   mixins: [idMixin, validationsMixin],
