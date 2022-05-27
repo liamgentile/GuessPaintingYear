@@ -31,7 +31,7 @@
       type="submit"
       class="guess-button"
       id="guess-button"
-      @click="validate"
+      @click="validate(), validInputResponse()"
       v-if="imageShown"
     >
       Guess
@@ -39,7 +39,7 @@
 
     <p class="exception-message">{{ exception }}</p>
 
-    <p></p>
+    <p class="guess-response">{{ guessResponse }}</p>
 
     <button @click="refreshPage" v-if="imageShown" class="refresh-button">
       Play Again
