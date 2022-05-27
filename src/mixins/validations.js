@@ -20,28 +20,31 @@ export const validationsMixin = {
         .getElementById("date-input")
         .classList.remove("invalid-input", "incomplete");
     },
+    // responses for valid date guesses, return only if exception data element is empty string 
     validInputResponse() {
-        if (this.exception === "") {
-            if (this.paintingDateGuess === this.paintingDate) {
-              this.guessResponse = "Wow, that's exactly right!";
-              document.getElementById("date-input").classList.add("correct");
-            }
-            else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
-              this.guessResponse = `You were very close, good try. The real date is ${this.paintingDate}.`;
-              document.getElementById("date-input").classList.add("close");
-            }
-            else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 25) {
-              this.guessResponse = `You were fairly close, good try. The real date is ${this.paintingDate}.`;
-              document.getElementById("date-input").classList.add("close");
-            }
-            else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 50) {
-              this.guessResponse = `You were a ways off. The real date is ${this.paintingDate}.`;
-              document.getElementById("date-input").classList.add("sort-of-close");
-            } else {
-              this.guessResponse = `Not your best guess. The real date is ${this.paintingDate}.`;
-              document.getElementById("date-input").classList.add("quite-far");
-            }
+      if (this.exception === "") {
+        // once they submit a valid response there's no point in showing the hint button
+        document.getElementById('need-a-hint').style.display = "none";
+        if (this.paintingDateGuess === this.paintingDate) {
+          this.guessResponse = "Wow, that's exactly right!";
+          document.getElementById("date-input").classList.add("correct");
+        } else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
+          this.guessResponse = `You were very close, good try. The real date is ${this.paintingDate}.`;
+          document.getElementById("date-input").classList.add("close");
+        } else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 25) {
+          this.guessResponse = `You were fairly close, good try. The real date is ${this.paintingDate}.`;
+          document.getElementById("date-input").classList.add("close");
+        } else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 50) {
+          this.guessResponse = `You were a ways off. The real date is ${this.paintingDate}.`;
+          document.getElementById("date-input").classList.add("sort-of-close");
+        } else {
+          this.guessResponse = `Not your best guess. The real date is ${this.paintingDate}.`;
+          document.getElementById("date-input").classList.add("quite-far");
         }
+      }
     },
+    showHint() {
+      document.getElementById('hint').style.display = "block";
+    }
   },
 };

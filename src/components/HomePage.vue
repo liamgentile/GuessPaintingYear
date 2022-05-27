@@ -2,7 +2,7 @@
   <div class="home">
     <h1>Guess the Painting Year!</h1>
     <h3>Test your intuition for painting dating</h3>
-    <label for="#random-painting-button" class="button-label"
+    <label for="#random-painting-button" class="button-label" v-if="!imageShown"
       >Click generate to fetch a random painting</label
     >
     <button
@@ -10,6 +10,7 @@
       class="get-painting-button"
       id="random-painting-button"
       @click="submit"
+      v-if="!imageShown"
     >
       Generate
     </button>
@@ -30,16 +31,25 @@
     <button
       type="submit"
       class="guess-button"
-      id="guess-button"
       @click="validate(), validInputResponse()"
       v-if="imageShown"
     >
       Guess
     </button>
+    <button
+      class="need-a-hint-button"
+      id="need-a-hint"
+      v-if="imageShown"
+      @click="showHint"
+    >
+      Need a hint?
+    </button>
 
-    <p class="guess-response">{{ guessResponse }}</p>
+    <p style="display:none;" id="hint">the name of this painting is {{ paintingName }}</p>
 
-    <p class="exception-message">{{ exception }}</p>
+    <p aria-live="polite" class="guess-response">{{ guessResponse }}</p>
+
+    <p role="alert" class="exception-message">{{ exception }}</p>
 
     <button @click="refreshPage" v-if="imageShown" class="refresh-button">
       Play Again
@@ -58,7 +68,6 @@ export default {
     return {
       exception: "",
       paintingDate: 0,
-      artistName: "",
       paintingName: "",
       paintingDateGuess: null,
       imagePath: "",
@@ -82,7 +91,7 @@ export default {
     async submit() {
       if (this.exception === "") {
         fetch(
-          `https://api.artic.edu/api/v1/artworks/${this.randomId}?fields=title,artist_title,date_end,alt_text,image_id`,
+          `https://api.artic.edu/api/v1/artworks/${this.randomId}?fields=thumbnail,title,date_end,image_id`,
           {
             method: "POST",
             headers: {
@@ -105,7 +114,8 @@ export default {
 
             this.paintingDate = response.data.date_end;
 
-            this.altText = response.data.alt_text;
+            this.altText = response.data.thumbnail.alt_text;
+            console.log(this.altText);
           });
       }
     },
@@ -171,6 +181,12 @@ img {
   padding: auto;
 }
 
+.need-a-hint-button {
+  margin: auto;
+  width: 8rem;
+  height: 3rem;
+  margin-top: 1rem;
+}
 .refresh-button {
   margin: auto;
   width: 6rem;
@@ -182,7 +198,12 @@ img {
 
 .exception-message {
   font-weight: 700;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+.guess-response {
+  font-weight: 700;
+  padding-bottom: 1rem;
 }
 
 .incomplete,
