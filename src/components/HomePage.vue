@@ -196,9 +196,10 @@ img {
 
 footer {
   margin: auto;
+  padding: auto;
   border-top: 2px solid #ffff;
   padding-top: 1rem;
-  width: 30rem;
+  width: 90%;
   height: 2rem;
   font-weight: 500;
 }
