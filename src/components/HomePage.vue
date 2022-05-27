@@ -45,11 +45,13 @@
       Need a hint?
     </button>
 
-    <p style="display:none;" id="hint">the name of this painting is {{ paintingName }}</p>
+    <p aria-live="polite" style="display: none" id="hint">
+      the name of this painting is {{ paintingName }}
+    </p>
 
-    <p aria-live="polite" class="guess-response">{{ guessResponse }}</p>
+    <p aria-live="polite" style="display: none" class="guess-response" id="guess-response">{{ guessResponse }}</p>
 
-    <p role="alert" class="exception-message">{{ exception }}</p>
+    <p role="alert" style="display: none" class="exception-message" id="exception-message">{{ exception }}</p>
 
     <button @click="refreshPage" v-if="imageShown" class="refresh-button">
       Play Again
@@ -150,6 +152,7 @@ h3 {
   padding: auto;
   height: 2rem;
   font-size: 1rem;
+  margin-bottom: 4rem;
 }
 
 img {
@@ -186,6 +189,7 @@ img {
   width: 8rem;
   height: 3rem;
   margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 .refresh-button {
   margin: auto;
@@ -202,8 +206,12 @@ img {
 }
 
 .guess-response {
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 700;
   padding-bottom: 1rem;
+  max-width: 10rem;
 }
 
 .incomplete,

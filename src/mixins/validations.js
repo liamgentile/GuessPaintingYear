@@ -8,10 +8,12 @@ export const validationsMixin = {
       ) {
         this.exception = "Please input a valid date, for example, 1976.";
         document.getElementById("date-input").classList.add("invalid-input");
+        document.getElementById('exception-message').style.display = "block";
       }
       if (!this.paintingDateGuess) {
         this.exception = "Woops, you forgot to fill out the date form.";
         document.getElementById("date-input").classList.add("incomplete");
+        document.getElementById('exception-message').style.display = "block";
       }
     },
     resetValidations() {
@@ -25,6 +27,7 @@ export const validationsMixin = {
       if (this.exception === "") {
         // once they submit a valid response there's no point in showing the hint button
         document.getElementById('need-a-hint').style.display = "none";
+        document.getElementById('guess-response').style.display = "block";
         if (this.paintingDateGuess === this.paintingDate) {
           this.guessResponse = "Wow, that's exactly right!";
           document.getElementById("date-input").classList.add("correct");
@@ -45,6 +48,8 @@ export const validationsMixin = {
     },
     showHint() {
       document.getElementById('hint').style.display = "block";
+      document.getElementById('need-a-hint').style.display = "none";
+
     }
   },
 };
