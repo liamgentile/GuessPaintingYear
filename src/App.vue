@@ -1,26 +1,47 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <HomePage/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HomePage from './components/HomePage.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HomePage
   }
 }
 </script>
 
 <style>
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
+
+html {
+  background: url("/src/assets/blush-bg.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/* global styling for headers and paragraph  */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400&family=Roboto:wght@700&display=swap');
+
+h1, h3, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  color: #222325
+}
+
+p, footer, label, button {
+  font-family: 'Libre Franklin', sans-serif;
+  color: #4b5158;
+}
+
+
+
 </style>
