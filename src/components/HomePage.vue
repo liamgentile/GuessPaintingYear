@@ -39,7 +39,9 @@
 
     <p class="exception-message">{{ exception }}</p>
 
-    <button @click="refreshPage" v-if="imageShown" class="refresh-button">Play Again</button>
+    <button @click="refreshPage" v-if="imageShown" class="refresh-button">
+      Play Again
+    </button>
     <footer>Powered by the Art Institute of Chicago API</footer>
   </div>
 </template>
@@ -167,7 +169,7 @@ img {
 }
 
 .refresh-button {
-   margin: auto;
+  margin: auto;
   width: 6rem;
   height: 2rem;
   font-size: 1rem;
