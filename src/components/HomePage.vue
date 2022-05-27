@@ -13,7 +13,7 @@
     >
       Generate
     </button>
-    <img :src="imagePath" :alt="altText" v-if="imageShown"/>
+    <img :src="imagePath" :alt="altText" v-if="imageShown" />
     <label class="input-label" for="#date-input" v-if="imageShown"
       >Input your guess below for what year the above painting was made.</label
     >
@@ -39,11 +39,15 @@
 
     <p class="exception-message">{{ exception }}</p>
 
+    <button @click="refreshPage" v-if="imageShown" class="refresh-button">Play Again</button>
     <footer>Powered by the Art Institute of Chicago API</footer>
   </div>
 </template>
 
 <script>
+import { idMixin } from "@/mixins/ids";
+import { validationsMixin } from "@/mixins/validations";
+
 export default {
   name: "HomePage",
   data() {
@@ -52,46 +56,28 @@ export default {
       paintingDate: 0,
       artistName: "",
       paintingName: "",
-      // setting a random id to fetch in a valid range
-      randomId: Math.floor(Math.random() * 90000) * 1000 + 12000,
       paintingDateGuess: null,
       imagePath: "",
       altText: "",
     };
   },
+  mixins: [idMixin, validationsMixin],
   computed: {
     imageShown() {
       return this.imagePath !== "";
-    }
+    },
+    randomId() {
+      return this.getRandomId(this.idArray);
+    },
   },
   methods: {
-    validate() {
-      // validations
-      if (
-        !Number.isInteger(+this.paintingDateGuess) &&
-        this.paintingDateGuess
-      ) {
-        this.exception = "Please input a valid date, for example, 1976.";
-        document.getElementById("date-input").classList.add("invalid-input");
-      }
-      if (!this.paintingDateGuess) {
-        this.exception = "Woops, you forgot to fill out the date form.";
-        document.getElementById("date-input").classList.add("incomplete");
-      }
-    },
-    resetValidations() {
-      this.exception = "";
-      document
-        .getElementById("date-input")
-        .classList.remove("invalid-input", "incomplete");
-    },
     refreshPage() {
-      window.location.reload;
+      window.location.reload();
     },
     async submit() {
       if (this.exception === "") {
         fetch(
-          "https://api.artic.edu/api/v1/artworks/12000?fields=title,artist_title,date_end,alt_text,image_id",
+          `https://api.artic.edu/api/v1/artworks/${this.randomId}?fields=title,artist_title,date_end,alt_text,image_id`,
           {
             method: "POST",
             headers: {
@@ -101,7 +87,7 @@ export default {
         )
           .then((res) => res.json())
           .then((response) => {
-            // retrieving the necessary data from the api response
+            // parsing the necessary data from the api response and assigning to component data elements
             this.imagePath =
               response.config.iiif_url +
               "/" +
@@ -129,7 +115,6 @@ export default {
   justify-content: center;
 }
 
-
 h3 {
   margin: auto;
   margin-top: 1.5rem;
@@ -139,9 +124,11 @@ h3 {
   width: 20rem;
   color: #332d2d !important;
 }
+
 .button-label {
   margin-bottom: 1rem;
 }
+
 .get-painting-button {
   width: 6rem;
   margin: auto;
@@ -160,6 +147,7 @@ img {
 .input-label {
   margin-top: 3rem;
 }
+
 .date-input {
   margin: auto;
   margin-top: 1rem;
@@ -178,10 +166,19 @@ img {
   padding: auto;
 }
 
+.refresh-button {
+   margin: auto;
+  width: 6rem;
+  height: 3rem;
+  font-size: 1rem;
+  padding: auto;
+}
+
 .exception-message {
   font-weight: 700;
   padding-bottom: 2rem;
 }
+
 .incomplete {
   border: 3px solid rgb(226, 98, 98);
 }

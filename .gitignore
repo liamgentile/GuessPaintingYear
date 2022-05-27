@@ -21,3 +21,9 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+babel.config.js
+cypress.json
+jsconfig.json
+package-lock.json
+vue.config.js
