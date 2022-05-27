@@ -41,7 +41,6 @@
 
     <p class="exception-message">{{ exception }}</p>
 
-
     <button @click="refreshPage" v-if="imageShown" class="refresh-button">
       Play Again
     </button>
@@ -186,11 +185,21 @@ img {
   padding-bottom: 2rem;
 }
 
-.incomplete {
+.incomplete,
+.invalid-input {
   border: 3px solid rgb(226, 98, 98);
 }
 
-.invalid-input {
+.correct {
+  border: 3px solid rgb(64, 132, 47);
+}
+
+.close {
+  border: 3px solid rgb(170, 202, 63);
+}
+
+.sort-of-close,
+.quite-far {
   border: 3px solid rgb(241, 156, 65);
 }
 

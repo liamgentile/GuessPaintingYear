@@ -26,15 +26,15 @@ export const validationsMixin = {
               this.guessResponse = "Wow, that's exactly right!";
               document.getElementById("date-input").classList.add("correct");
             }
-            if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
+            else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
               this.guessResponse = `You were very close, good try. The real date is ${this.paintingDate}.`;
               document.getElementById("date-input").classList.add("close");
             }
-            if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 25) {
+            else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 25) {
               this.guessResponse = `You were fairly close, good try. The real date is ${this.paintingDate}.`;
               document.getElementById("date-input").classList.add("close");
             }
-            if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 50) {
+            else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 50) {
               this.guessResponse = `You were a ways off. The real date is ${this.paintingDate}.`;
               document.getElementById("date-input").classList.add("sort-of-close");
             } else {
