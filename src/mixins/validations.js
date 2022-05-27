@@ -21,25 +21,27 @@ export const validationsMixin = {
         .classList.remove("invalid-input", "incomplete");
     },
     validInputResponse() {
-      if (this.paintingDateGuess === this.paintingDate) {
-        this.guessResponse = "Wow, that's exactly right!";
-        document.getElementById("date-input").classList.add("correct");
-      }
-      if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
-        this.guessResponse = `You were very close, good try. The real date is ${this.paintingDate}.`;
-        document.getElementById("date-input").classList.add("close");
-      }
-      if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 25) {
-        this.guessResponse = `You were fairly close, good try. The real date is ${this.paintingDate}.`;
-        document.getElementById("date-input").classList.add("close");
-      }
-      if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 50) {
-        this.guessResponse = `You were a ways off. The real date is ${this.paintingDate}.`;
-        document.getElementById("date-input").classList.add("sort-of-close");
-      } else {
-        this.guessResponse = `Not your best guess. The real date is ${this.paintingDate}.`;
-        document.getElementById("date-input").classList.add("quite-far");
-      }
+        if (this.exception === "") {
+            if (this.paintingDateGuess === this.paintingDate) {
+              this.guessResponse = "Wow, that's exactly right!";
+              document.getElementById("date-input").classList.add("correct");
+            }
+            if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
+              this.guessResponse = `You were very close, good try. The real date is ${this.paintingDate}.`;
+              document.getElementById("date-input").classList.add("close");
+            }
+            if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 25) {
+              this.guessResponse = `You were fairly close, good try. The real date is ${this.paintingDate}.`;
+              document.getElementById("date-input").classList.add("close");
+            }
+            if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 50) {
+              this.guessResponse = `You were a ways off. The real date is ${this.paintingDate}.`;
+              document.getElementById("date-input").classList.add("sort-of-close");
+            } else {
+              this.guessResponse = `Not your best guess. The real date is ${this.paintingDate}.`;
+              document.getElementById("date-input").classList.add("quite-far");
+            }
+        }
     },
   },
 };

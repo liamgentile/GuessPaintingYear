@@ -37,9 +37,10 @@
       Guess
     </button>
 
+    <p class="guess-response">{{ guessResponse }}</p>
+
     <p class="exception-message">{{ exception }}</p>
 
-    <p class="guess-response">{{ guessResponse }}</p>
 
     <button @click="refreshPage" v-if="imageShown" class="refresh-button">
       Play Again
