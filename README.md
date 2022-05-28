@@ -13,7 +13,7 @@ merged respective branches into master upon completion of task
 
 ## Accessibility considerations
 
-- Contrast
+- Verified text to background colour is sufficiently contrasting
 - Ensured tab works as expected
 - Retrieved and displayed alt text for fetched images 
 - Semantic HTML (i.e. `button`, `label`)
@@ -21,6 +21,22 @@ merged respective branches into master upon completion of task
 - Added a hint feature (painting name), as sometimes the alt text is not the best
 
 ## Testing
+
+I used Cypress, a Javascript based frontend testing tool. I like it because you can write both unit and e2e tests, and the syntax is intuitive and easy to read. 
+
+All tests for this app are located in the file: `guess-painting-year.spec.js`
+
+I wrote the following tests:
+1. Visit page
+2. Verify initial page elements are present
+3. Test the generate button, and verify that expected elements appear once clicked
+4. Verify that the fetched image has alt text
+5. Test invalid inputs (not an int or empty)
+6. Test the hint button
+7. Test a valid guess
+8. Test the play again button works as expected 
+
+
 
 ## Resources
 
