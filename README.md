@@ -13,7 +13,7 @@ merged respective branches into master upon completion of task
 
 ## Accessibility considerations
 
-- Verified text to background colour is sufficiently contrasting
+- Verified text and background is sufficiently contrasting
 - Ensured tab works as expected
 - Retrieved and displayed alt text for fetched images 
 - Semantic HTML (i.e. `button`, `label`)
