@@ -13,6 +13,13 @@ merged respective branches into master upon completion of task
 
 ## Accessibility considerations
 
+- Contrast
+- Ensured tab works as expected
+- Retrieved and displayed alt text for fetched images 
+- Semantic HTML (i.e. `button`, `label`)
+- clear language, no abbreviations
+- Added a hint feature (painting name), as sometimes the alt text is not the best
+
 ## Testing
 
 ## Resources
