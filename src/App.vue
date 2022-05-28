@@ -37,8 +37,8 @@ button {
   border-color: #ffffff;
 }
 
-button :hover {
-background-color: #9a9696;
+button:hover {
+border-color: #9a9696;
 }
 
 /* global styling for headers and paragraph  */

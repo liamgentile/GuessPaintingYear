@@ -182,6 +182,7 @@ img {
   width: 5rem;
   height: 2rem;
   font-size: 1rem;
+  font-weight: 700;
 }
 
 .need-a-hint-button {
@@ -195,12 +196,11 @@ img {
 .refresh-button {
   margin: auto;
    padding: auto;
-  width: 6rem;
+  width: 8rem;
   height: 3rem;
   font-size: 1rem;
   margin-bottom: 1rem;
 }
-
 .exception-message {
   font-weight: 700;
   padding-bottom: 1rem;
