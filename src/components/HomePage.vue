@@ -177,11 +177,12 @@ img {
 
 .guess-button {
   margin: auto;
+  padding: auto;
   margin-top: 1rem;
   width: 5rem;
   height: 2rem;
   font-size: 1rem;
-  padding: auto;
+  font-weight: 700;
 }
 
 .need-a-hint-button {
@@ -190,16 +191,16 @@ img {
   height: 3rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  font-size: 1rem;
 }
 .refresh-button {
   margin: auto;
-  width: 6rem;
-  height: 2rem;
+   padding: auto;
+  width: 8rem;
+  height: 3rem;
   font-size: 1rem;
-  padding: auto;
   margin-bottom: 1rem;
 }
-
 .exception-message {
   font-weight: 700;
   padding-bottom: 1rem;

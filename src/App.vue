@@ -29,6 +29,18 @@ html {
   background-size: cover;
 }
 
+
+
+button {
+  outline: none;
+  background-color: #efefef;
+  border-color: #ffffff;
+}
+
+button:hover {
+border-color: #9a9696;
+}
+
 /* global styling for headers and paragraph  */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400&family=Roboto:wght@700&display=swap');
 
