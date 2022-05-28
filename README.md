@@ -4,6 +4,13 @@
 
 https://guess-painting-year-lg.netlify.app/
 
+#### Branching Strategy
+
+`feature/app` for working on all pertinent app code
+`tests` for working on cypress tests
+
+merged respective branches into master upon completion of task
+
 ## Accessibility considerations
 
 ## Testing
