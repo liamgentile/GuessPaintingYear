@@ -8,7 +8,7 @@ https://guess-painting-year-lg.netlify.app/
 
 ### Important Files
 
-#### HomePage.vue
+#### HomePage.vue (https://github.com/liamgentile/GuessPaintingYear/blob/fa7bfaab07b56fdbe08f3c464bf2f9e4df71b90c/src/components/HomePage.vue)
 
 The core component of the application. It contains the HTML and most of the styling for the site. Also contains data elements, computed values, and the `submit()` method which makes the api call. The HomePage component is included in App.vue, the base component, in order to be displayed. 
 
