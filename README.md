@@ -24,7 +24,8 @@ merged respective branches into master upon completion of task
 
 I used Cypress, a Javascript based frontend testing tool. I like it because you can write both unit and e2e tests, and the syntax is intuitive and easy to read. 
 
-All tests for this app are located in the file: `guess-painting-year.spec.js`
+All tests for this app are located in the file: `guess-painting-year.spec.js`. [
+](https://github.com/liamgentile/GuessPaintingYear/blob/89fac9f5cb96d439691654d3ccd80dad3605df22/cypress/integration/guess-painting-year.spec.js)
 
 I wrote the following tests:
 1. Visit page
