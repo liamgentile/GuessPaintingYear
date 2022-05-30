@@ -8,7 +8,7 @@ I wanted to create a simple game using the Art Institute of Chicago API. The API
 
 #### HomePage.vue
 
-The core component of the application. Contains the HTML and most of the styling for the site. Also contains data elements, computed values, and the `submit()` method which makes the api call. The HomePage component is included in App.vue, the base component in order to be displayed. 
+The core component of the application. It contains the HTML and most of the styling for the site. Also contains data elements, computed values, and the `submit()` method which makes the api call. The HomePage component is included in App.vue, the base component, in order to be displayed. 
 
 #### mixins/ids.js
 
