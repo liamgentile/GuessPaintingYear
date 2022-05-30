@@ -8,10 +8,22 @@ I wanted to create a simple game using the Art Institute of Chicago API. The API
 
 #### HomePage.vue
 
+The core component of the application. Contains the HTML and most of the styling for the site. Also contains data elements, computed values, and the `submit()` method which makes the api call. The HomePage component is included in App.vue, the base component in order to be displayed. 
+
 #### mixins/ids.js
+
+The ids mixin includes an id array, which is a limited sample of valid ids from the AIC API. This is necessary in order to fetch a random image from the API. The ids mixin also includes a method to get a random id from the ids array. 
+
+- Improvements: ideally I would have been able to randomize within a range of ids, but while there is a fixed range of ids the steps between are not consistent. I am investigating a better way to fetch a random id. 
 
 #### mixins/validations.js
 
+The validations mixin contains methods specific to validating the date input field. 
+
+- validate(): checks that date input is not empty and that it is an int, and if not returns an appropriate message to the user
+- resetValidations()
+- validInputResponse(): if valid input, give a response depending on how close the user was to the correct answer
+- showHint()
 
 https://guess-painting-year-lg.netlify.app/
 
@@ -30,6 +42,7 @@ merged respective branches into master upon completion of task
 - Semantic HTML (i.e. `button`, `label`)
 - clear language, no abbreviations
 - Added a hint feature (painting name), as sometimes the alt text is not the best
+- `aria-live` attribute to inform the user of exception messages, guess response, and hint 
 
 ## Testing
 
