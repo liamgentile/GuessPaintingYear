@@ -28,7 +28,7 @@ export const validationsMixin = {
         // once they submit a valid response there's no point in showing the hint button
         document.getElementById('need-a-hint').style.display = "none";
         document.getElementById('guess-response').style.display = "block";
-        if (this.paintingDateGuess === this.paintingDate) {
+        if (this.paintingDateGuess == this.paintingDate) {
           this.guessResponse = "Wow, that's exactly right!";
           document.getElementById("date-input").classList.add("correct");
         } else if (Math.abs(this.paintingDateGuess - this.paintingDate) <= 10) {
