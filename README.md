@@ -12,7 +12,7 @@ https://guess-painting-year-lg.netlify.app/
 
 The core component of the application. It contains the HTML and most of the styling for the site. Also contains data elements, computed values, and the `submit()` method which makes the api call. The HomePage component is included in App.vue, the base component, in order to be displayed. 
 
-#### mixins/ids.js
+#### mixins/ids.js (https://github.com/liamgentile/GuessPaintingYear/blob/02565236153e553f9ff0da545745aa4412a8372f/src/mixins/ids.js)
 
 The ids mixin includes an id array, which is a limited sample of valid ids from the AIC API. This is necessary in order to fetch a random image from the API. The ids mixin also includes a method to get a random id from the ids array. 
 
