@@ -4,6 +4,13 @@
 
 I wanted to create a simple game using the Art Institute of Chicago API. The API lets you fetch images from their database using ids. So, I thought it would be fun to get a random image, display it to the user, and let them try and guess the year the piece of art was made. 
 
+### Important Files
+
+#### HomePage.vue
+
+#### mixins/ids.js
+
+#### mixins/validations.js
 
 
 https://guess-painting-year-lg.netlify.app/
