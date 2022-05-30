@@ -4,6 +4,8 @@
 
 I wanted to create a simple game using the Art Institute of Chicago API. The API lets you fetch images from their database using ids. So, I thought it would be fun to get a random image, display it to the user, and let them try and guess the year the piece of art was made. 
 
+https://guess-painting-year-lg.netlify.app/
+
 ### Important Files
 
 #### HomePage.vue
@@ -24,8 +26,6 @@ The validations mixin contains methods specific to validating the date input fie
 - resetValidations()
 - validInputResponse(): if valid input, give a response depending on how close the user was to the correct answer
 - showHint()
-
-https://guess-painting-year-lg.netlify.app/
 
 #### Branching Strategy
 
