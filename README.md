@@ -18,7 +18,7 @@ The ids mixin includes an id array, which is a limited sample of valid ids from 
 
 - Improvements: ideally I would have been able to randomize within a range of ids, but while there is a fixed range of ids the steps between are not consistent. I am investigating a better way to fetch a random id. 
 
-#### mixins/validations.js
+#### mixins/validations.js (https://github.com/liamgentile/GuessPaintingYear/blob/2e9f085458a65874a48b6731b7f699b605aeb3e9/src/mixins/validations.js)
 
 The validations mixin contains methods specific to validating the date input field. 
 
